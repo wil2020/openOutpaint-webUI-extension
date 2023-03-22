@@ -35,19 +35,18 @@ def test_api(_: gr.Blocks, app: FastAPI):
         }
 
 def switchAssumption(channelCount):
-    match channelCount:
-        case 4:
-            return "traditional"
-        case 5:
-            return "sdv2 depth2img"
-        case 7:
-            return "sdv2 upscale 4x"
-        case 8: 
-            return "instruct-pix2pix"
-        case 9: 
-            return "inpainting"
-        case _:
-            return "¯\_(ツ)_/¯"
+    if channelCount == 4:
+        return "traditional"
+    elif channelCount == 5:
+        return "sdv2 depth2img"
+    elif channelCount == 7:
+        return "sdv2 upscale 4x"
+    elif channelCount == 8: 
+        return "instruct-pix2pix"
+    elif channelCount == 9: 
+        return "inpainting"
+    else:
+        return "¯\_(ツ)_/¯"
 
 def get_current_model():
     options = {}
